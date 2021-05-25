@@ -1,0 +1,19 @@
+include: package:pedantic/analysis_options.yaml
+
+analyzer:
+  errors:
+    missing_required_param: error
+  exclude:
+    - lib/generated
+    - lib/l10n
+    - lib/generated_plugin_registrant.dart
+    - lib/**.g.dart
+
+# Rules: https://dart-lang.github.io/linter/lints/
+linter:
+  rules:
+    avoid_relative_lib_imports: true
+    prefer_relative_imports: false
+    close_sinks: false
+    unnecessary_new: false
+    unnecessary_brace_in_string_interps: false

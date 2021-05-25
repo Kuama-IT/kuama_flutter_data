@@ -1,0 +1,19 @@
+name: kuama_flutter_data
+description: A starting point for Dart libraries or applications.
+# version: 1.0.0
+# homepage: https://www.example.com
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies:
+  #  path: ^1.7.0
+  dio: ^4.0.0
+
+  kuama_dart_domain:
+    git:
+      url: https://github.com/Kuama-IT/kuama_dart_domain.git
+      ref: c3ebe5a8c00ec847df2bb7ebc5ac96babd1bbd50
+
+dev_dependencies:
+  pedantic: ^1.9.0
