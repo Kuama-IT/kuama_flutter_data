@@ -35,6 +35,11 @@ index_generator:
     - black: .*\/_.*.dart*
   indexes:
     - path: lib
+      name: launcher
+      library: kuama_data_launcher
+      export:
+        - src/features/launcher
+    - path: lib
       name: permissions
       library: kuama_data_permissions
       export:
