@@ -2,18 +2,40 @@ name: kuama_flutter_data
 description: A starting point for Dart libraries or applications.
 # version: 1.0.0
 # homepage: https://www.example.com
+publish_to: 'none'
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
+  flutter:
+    sdk: flutter
   #  path: ^1.7.0
   dio: ^4.0.0
 
+  permission_handler: ^7.0.0
+  shared_preferences: ^2.0.0
+
   kuama_dart_domain:
-    git:
-      url: https://github.com/Kuama-IT/kuama_dart_domain.git
-      ref: c3ebe5a8c00ec847df2bb7ebc5ac96babd1bbd50
+    path: ../kuama_dart_domain
+#    git:
+#      url: https://github.com/Kuama-IT/kuama_dart_domain.git
+#      ref: master
 
 dev_dependencies:
-  pedantic: ^1.9.0
+  flutter_test:
+    sdk: flutter
+  index_generator: ^2.0.1
+
+# To generate index files: flutter pub run index_generator:main
+index_generator:
+  filters:
+    # Ignore all private folders or files
+    - black: .*\/_.*\/.*
+    - black: .*\/_.*.dart*
+  indexes:
+    - path: lib
+      name: permissions
+      library: kuama_data_permissions
+      export:
+        - src/features/permissions
