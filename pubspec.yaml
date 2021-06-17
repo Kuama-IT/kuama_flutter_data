@@ -25,7 +25,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  index_generator: ^2.0.1
+  index_generator: ^2.0.2
 
 # To generate index files: flutter pub run index_generator:main
 index_generator:
@@ -35,10 +35,10 @@ index_generator:
     - black: .*\/_.*.dart*
   indexes:
     - path: lib
-      name: launcher
-      library: kuama_data_launcher
+      name: app_pages
+      library: kuama_data_app_pages
       export:
-        - src/features/launcher
+        - src/features/app_pages
     - path: lib
       name: permissions
       library: kuama_data_permissions
