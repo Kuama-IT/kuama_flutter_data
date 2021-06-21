@@ -17,10 +17,10 @@ dependencies:
   shared_preferences: ^2.0.0
 
   kuama_dart_domain:
-    path: ../kuama_dart_domain
-#    git:
-#      url: https://github.com/Kuama-IT/kuama_dart_domain.git
-#      ref: master
+    git:
+      url: https://github.com/Kuama-IT/kuama_dart_domain.git
+      ref: master
+#    path: ../kuama_dart_domain
 
 dev_dependencies:
   flutter_test:

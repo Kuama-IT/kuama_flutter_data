@@ -1,4 +1,5 @@
 import 'package:kuama_dart_domain/permissions.dart';
+import 'package:kuama_flutter_data/src/utils/lg.dart';
 import 'package:permission_handler/permission_handler.dart' as ph;
 
 /// [PermissionRepository]
@@ -6,7 +7,8 @@ class PermissionRepositoryImpl implements PermissionRepository {
   /// [PermissionRepository.check]
   @override
   Stream<PermissionStatus> check(Permission permission) async* {
-    final status = await permission.toPermissionHandler().request();
+    final status = await permission.toPermissionHandler().status;
+    lg.fine('PermissionRepositoryImpl.check | $permission: $status');
     yield status.toStatus();
   }
 
@@ -14,6 +16,7 @@ class PermissionRepositoryImpl implements PermissionRepository {
   @override
   Stream<PermissionStatus> request(Permission permission) async* {
     final status = await permission.toPermissionHandler().request();
+    lg.fine('PermissionRepositoryImpl.request | $permission: $status');
     yield status.toStatus();
   }
 }
@@ -39,9 +42,10 @@ extension PermissionStatusHandlerToPermissionStatus on ph.PermissionStatus {
       case ph.PermissionStatus.denied:
         return PermissionStatus.denied;
       case ph.PermissionStatus.limited:
-      case ph.PermissionStatus.granted:
       case ph.PermissionStatus.restricted:
         return PermissionStatus.denied;
+      case ph.PermissionStatus.granted:
+        return PermissionStatus.granted;
     }
   }
 }
